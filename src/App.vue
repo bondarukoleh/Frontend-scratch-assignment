@@ -3,7 +3,7 @@
     <nav>
       <ul class="nav-links">
         <li class="link" v-for="destination in destinations" :key="destination.name">
-          <router-link :to="destination.route">{{destination.name}}</router-link>
+          <router-link :to="{name: destination.name}">{{destination.name}}</router-link>
         </li>
       </ul>
     </nav>

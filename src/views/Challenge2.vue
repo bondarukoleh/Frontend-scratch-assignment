@@ -3,7 +3,8 @@
 </template>
 
 <script lang="ts">
-import {Vue} from "vue-property-decorator";
+import {Component, Vue} from "vue-property-decorator";
+@Component({name: 'Challenge2'})
 export default class Challenge2 extends Vue {
 }
 </script>
