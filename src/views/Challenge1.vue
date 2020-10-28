@@ -1,8 +1,6 @@
 <template>
   <main id="challenge1">
-    <header>
-      <h2>Calculator.</h2>
-    </header>
+    <h1>Calculator</h1>
     <div class="promo">You can add values, check result and clear it. Have fun!&#128517;</div>
     <div v-if="showError" class="error">Sorry, something went wrong. Please enter different numbers.
       <button class="btn_main_red" v-on:click="errorShowChange">Close</button>
@@ -19,6 +17,7 @@
               :placeholder="inputData.placeholder"
           />
         </label>
+        <span>+</span>
         <label>
           <input
               class="input"
@@ -30,10 +29,11 @@
           />
         </label>
       </div>
+      <span>=</span>
+      <div class="result">{{ state.result }}</div>
       <button type="submit" class="btn_main">Addition</button>
       <button type="button" class="btn_main_red" v-on:click="handleReset">Reset</button>
     </form>
-    <div class="result">Result is: {{ state.result }}</div>
   </main>
 </template>
 
@@ -86,14 +86,9 @@ export default class Challenge1 extends Vue {
 <style lang="scss">
   @import "../sass/utils";
 
-  .promo {
-    padding: 0 1rem 2rem;
-    font-size: 1.2rem;
-  }
-
   #calculatorForm {
     .input, .btn_main {
-      margin: .4rem;
+      margin: .6rem;
     }
   }
 

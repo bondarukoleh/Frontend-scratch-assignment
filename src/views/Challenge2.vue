@@ -40,6 +40,10 @@ export default class Challenge2 extends Vue {
     return `background-color: ${color}`;
   }
 
+  private static getRandomID(): number {
+    return Math.floor(Math.random() * 1000);
+  }
+
   private addBox(row: Row): void {
     row.boxes.push({color: Challenge2.randomColor()});
   }
@@ -50,10 +54,6 @@ export default class Challenge2 extends Vue {
 
   private getLastRow(): Row {
     return this.rows[this.rows.length - 1];
-  }
-
-  private static getRandomID(): number {
-    return Math.floor(Math.random() * 1000);
   }
 
   handleAddBoxClick(): void {
