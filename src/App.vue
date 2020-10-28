@@ -39,6 +39,7 @@ nav {
 
   .nav-links {
     list-style: none;
+    padding: 0;
 
     .link {
       display: inline-block;

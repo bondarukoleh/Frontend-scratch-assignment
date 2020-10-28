@@ -59,6 +59,11 @@ export default class Challenge1 extends Vue {
   }
   showError = false
 
+  private resetOperands(): void {
+    this.state.firstOperand = null;
+    this.state.secondOperand = null;
+  }
+
   handleAddition() {
     this.state.result += Number(this.state.firstOperand) + Number(this.state.secondOperand);
     if(Number.isNaN(this.state.result)) {
@@ -74,11 +79,6 @@ export default class Challenge1 extends Vue {
 
   errorShowChange () {
     this.showError = false;
-  }
-
-  private resetOperands(): void {
-    this.state.firstOperand = null;
-    this.state.secondOperand = null;
   }
 }
 </script>
