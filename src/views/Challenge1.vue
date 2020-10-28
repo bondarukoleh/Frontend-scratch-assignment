@@ -4,6 +4,9 @@
       <h2>Calculator.</h2>
     </header>
     <div class="promo">You can add values, check result and clear it. Have fun!&#128517;</div>
+    <div v-if="showError" class="error">Sorry, something went wrong. Please enter different numbers.
+      <button class="btn_main_red" v-on:click="errorShowChange">Close</button>
+    </div>
     <form id="calculatorForm" action="#" @submit.prevent="handleAddition">
       <div>
         <label>
@@ -49,21 +52,28 @@ export default class Challenge1 extends Vue {
     secondOperand: null,
     result: 0
   }
-
   inputData = {
     placeholder: "Enter a number...",
-    pattern: "^[+]?\\d+([.]\\d+)?$",
-    title: "Only positive numbers allowed.",
+    pattern: "^[+]?\\d+([.]\\d{0,8})?$",
+    title: "Only positive numbers allowed, with 0.00000000 format",
   }
+  showError = false
 
   handleAddition() {
     this.state.result += Number(this.state.firstOperand) + Number(this.state.secondOperand);
+    if(Number.isNaN(this.state.result)) {
+      this.showError = true;
+    }
     this.resetOperands();
   }
 
   handleReset(): void {
     this.resetOperands();
     this.state.result = 0;
+  }
+
+  errorShowChange () {
+    this.showError = false;
   }
 
   private resetOperands(): void {
@@ -92,5 +102,12 @@ export default class Challenge1 extends Vue {
     padding: 1rem;
     width: 20%;
     margin: auto;
+  }
+
+  .error {
+    width: 60%;
+    margin: 1rem auto;
+    padding: 1rem;
+    background: $red-color-secondary-transparent;
   }
 </style>
