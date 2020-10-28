@@ -54,3 +54,22 @@ Try and make it clear and simple to see different boxes inside the rows, bonus p
 You are required to add a localization feature to this page. You are required to add an input and a dropdown and a button with the text 'GO' written inside. The Input should only allow string input. The Dropdown will have `EN` and one other language of your choosing (as an example for dutch we could put `NL`). When a user enters a string and selects a language you will be required to match it against an entry inside a separate json localization file, and the result should be printed out underneath our form.
 
 # Notes
+Hi Liam!😀
+
+First of all, thank you for this assignment, it was interesting and fun. 
+I would like to add some notes to the solutions I choose. 
+
+So this is the first time I put my hands on Vue, and I'm impressed. A very interesting framework. A lot of great features,
+and this is only what I've seen over those couple of days. 
+
+But there was something that frustrated me most - Router, I couldn't understand why if I'm declared that for path "/a"
+I should render view "A", and I see that the URL is changed to "/a" but view - not. Named Routes saved the day, but I
+realize of course, that I need to dive in Vue much deeper.     
+
+You can notice I haven't added a lot of components - but for these simple pages, I don't see nice candidates for them.
+
+I'm more or less OK with Challenge1 and Challenge2, but my Challenge3 implementation... I'm not a fan, it's for sure not
+end implementation.
+
+Thanks again,
+Oleh

@@ -5,6 +5,6 @@ export enum Locals {
   english = 'english'
 }
 
-export const getLocalization = (lang: Locals): {[key: string]: string} => {
+export const getLocalization = (lang: Locals): { [key: string]: string } => {
   return localizations[lang]
 };

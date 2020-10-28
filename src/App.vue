@@ -3,7 +3,7 @@
     <nav>
       <ul class="nav-links">
         <li class="link" v-for="destination in destinations" :key="destination.name">
-          <router-link :to="{name: destination.name}">{{destination.name}}</router-link>
+          <router-link :to="{name: destination.name}">{{ destination.name }}</router-link>
         </li>
       </ul>
     </nav>
@@ -12,17 +12,17 @@
 </template>
 
 <script>
-  export default {
-    data() {
-     return {
-       destinations: [
-         {route: '/challenge-1', name: 'Challenge1'},
-         {route: '/challenge-2', name: 'Challenge2'},
-         {route: '/challenge-3', name: 'Challenge3'},
-       ]
-     }
-    }
+export default {
+  data() {
+    return {
+      destinations: [
+        {route: '/challenge-1', name: 'Challenge1'},
+        {route: '/challenge-2', name: 'Challenge2'},
+        {route: '/challenge-3', name: 'Challenge3'},
+      ]
+    };
   }
+};
 </script>
 
 <style lang="scss">

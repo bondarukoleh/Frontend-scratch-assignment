@@ -1,5 +1,5 @@
 import Vue from "vue";
-import VueRouter, { RouteConfig } from "vue-router";
+import VueRouter, {RouteConfig} from "vue-router";
 import Challenge1 from "../views/Challenge1.vue";
 
 Vue.use(VueRouter);
@@ -16,12 +16,12 @@ const routes: Array<RouteConfig> = [
   {
     path: "/challenge-2",
     name: "Challenge2",
-    component: /* webpackChunkName: "Challenge2"  */ () => import("../views/Challenge2.vue")
+    component: () => import("../views/Challenge2.vue")
   },
   {
     path: "/challenge-3",
     name: "Challenge3",
-    component: /* webpackChunkName: "Challenge3"  */ () => import("../views/Challenge3.vue")
+    component: () => import("../views/Challenge3.vue")
   },
 ];
 

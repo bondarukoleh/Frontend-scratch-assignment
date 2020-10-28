@@ -1,11 +1,12 @@
 <template>
   <main id="challenge3">
     <h1>Translation</h1>
-    <div class="promo">Translate the English days of the week to Netherlands ones and <b>vice versa.</b> Variety! &#128521;</div>
-    <div v-if="translatorFormState.showWarn" class="error">Sorry, we don't know this day of week &#128533; Try another
-      one &#128579;.
-      <button class="btn_main_red" v-on:click="hideWarn">Close</button>
+    <div class="promo">Translate the <b>English</b> days of the week to <b>Netherlands</b> ones and <b>vice versa.</b>
+      Variety! &#128521;
     </div>
+    <Error :clicked="hideWarn"
+           :condition-to-show="translatorFormState.showWarn"
+           :message="errorMessage"/>
     <section id="translator">
       <form id="translatorForm" action="#" @submit.prevent="handleTranslate">
         <label>
@@ -33,6 +34,7 @@
 <script lang="ts">
 import {Component, Vue} from "vue-property-decorator";
 import {getLocalization, Locals} from "@/helpers/localization/localizationHelper"
+import Error from "@/components/Error.vue";
 
 type Translator = {
   showWarn: boolean;
@@ -41,7 +43,10 @@ type Translator = {
   result: string;
 }
 
-@Component({name: "Challenge3"})
+@Component({
+  name: "Challenge3",
+  components: {Error}
+})
 export default class Challenge3 extends Vue {
   inputData = {
     placeholder: "Enter a day of week...",
@@ -55,6 +60,7 @@ export default class Challenge3 extends Vue {
     result: ''
   }
   languages = Object.keys(Locals)
+  errorMessage = "Sorry, we don't know this day of week 😕 Try another one 😊"
 
   hideWarn(): void {
     this.translatorFormState.showWarn = false;

@@ -2,9 +2,10 @@
   <main id="challenge1">
     <h1>Calculator</h1>
     <div class="promo">You can add values, check result and clear it. Have fun!&#128517;</div>
-    <div v-if="showError" class="error">Sorry, something went wrong. Please enter different numbers.
-      <button class="btn_main_red" v-on:click="errorShowChange">Close</button>
-    </div>
+    <Error
+        :clicked="errorShowChange"
+        :condition-to-show="showError"
+        :message="errorMessage"/>
     <form id="calculatorForm" action="#" @submit.prevent="handleAddition">
       <div>
         <label>
@@ -39,13 +40,19 @@
 
 <script lang="ts">
 import {Component, Vue} from "vue-property-decorator";
+import Error from "@/components/Error.vue";
+
 type CalculatorType = {
   firstOperand: null | number;
   secondOperand: null | number;
   result: number;
 }
 
-@Component({name: 'Challenge1'})
+@Component({
+  name: 'Challenge1',
+  components: {Error}
+})
+
 export default class Challenge1 extends Vue {
   state: CalculatorType = {
     firstOperand: null,
@@ -58,6 +65,7 @@ export default class Challenge1 extends Vue {
     title: "Only positive numbers allowed, with 0.00000000 format",
   }
   showError = false
+  errorMessage = "Sorry, something went wrong. Please enter different numbers."
 
   private resetOperands(): void {
     this.state.firstOperand = null;
@@ -66,7 +74,7 @@ export default class Challenge1 extends Vue {
 
   handleAddition() {
     this.state.result += Number(this.state.firstOperand) + Number(this.state.secondOperand);
-    if(Number.isNaN(this.state.result)) {
+    if (Number.isNaN(this.state.result)) {
       this.showError = true;
     }
     this.resetOperands();
@@ -77,32 +85,25 @@ export default class Challenge1 extends Vue {
     this.state.result = 0;
   }
 
-  errorShowChange () {
+  errorShowChange() {
     this.showError = false;
   }
 }
 </script>
 
 <style lang="scss">
-  @import "../sass/utils";
+@import "../sass/utils";
 
-  #calculatorForm {
-    .input, .btn_main {
-      margin: .6rem;
-    }
+#calculatorForm {
+  .input, .btn_main {
+    margin: .6rem;
   }
+}
 
-  .result {
-    background: #42b983;
-    padding: 1rem;
-    width: 20%;
-    margin: auto;
-  }
-
-  .error {
-    width: 60%;
-    margin: 1rem auto;
-    padding: 1rem;
-    background: $red-color-secondary-transparent;
-  }
+.result {
+  background: #42b983;
+  padding: 1rem;
+  width: 20%;
+  margin: auto;
+}
 </style>

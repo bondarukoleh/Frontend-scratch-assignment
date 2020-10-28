@@ -21,15 +21,18 @@ $light-color: #f4f4f4;
     @extend %btn-shared;
     background-color: $main-color;
     color: set-contrast-color($main-color);
+
     &:hover {
       background-color: $secondary-color;
       color: set-contrast-color($secondary-color);
     }
   }
+
   &_main_red {
     @extend %btn-shared;
     background-color: $red-color;
     color: set-contrast-color($red-color);
+
     &:hover {
       background-color: $red-color-secondary;
       color: set-contrast-color($red-color-secondary);
@@ -48,8 +51,8 @@ $light-color: #f4f4f4;
   font-size: 1.2rem;
 }
 
-@function set-contrast-color($color){
-  @if(lightness($color) >= 50){
+@function set-contrast-color($color) {
+  @if (lightness($color) >= 50) {
     @return $dark-color;
   }
   @return $light-color;
