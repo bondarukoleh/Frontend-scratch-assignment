@@ -12,6 +12,13 @@ export default class Error extends Vue {
   @Prop({required: true}) conditionToShow: boolean;
   @Prop({required: true}) message: string;
   @Prop({required: true}) clicked: Function;
+
+  constructor() {
+    super();
+    this.message = 'Sorry, something went wrong.'
+    this.conditionToShow = false;
+    this.clicked = () => this.conditionToShow = !this.conditionToShow;
+  }
 }
 </script>
 
